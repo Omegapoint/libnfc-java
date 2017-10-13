@@ -3,6 +3,9 @@ OUTDIR=../src/main/java/se/omegapoint/nfc/libnfc
 
 JAVAPATH=$(JAVA_HOME)/include
 
+all:
+	@echo "Run make linux or make mac"
+
 mac: LIBPATH = /usr/local/Cellar/libnfc/1.7.1/include/
 mac: swig
 	gcc -dynamiclib -I$(LIBPATH) -I$(JAVAPATH) -I$(JAVAPATH)/darwin/ -lnfc -o libnfcjni.dylib nfc_wrap.c
