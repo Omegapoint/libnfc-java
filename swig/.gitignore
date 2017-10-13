@@ -1,1 +1,3 @@
 nfc_wrap.c
+libnfcjni.dylib
+libnfcjni.so

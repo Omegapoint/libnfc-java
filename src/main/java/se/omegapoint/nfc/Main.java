@@ -24,7 +24,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        System.load("/Users/jakobpetersson/Desktop/libnfc-java/swig/nfcjni.dylib"); // Set this up in another way...
+        System.load("/Users/jakobpetersson/Desktop/libnfc-java/swig/libnfcjni.dylib"); // Set this up in another way...
 
         SWIGTYPE_p_p_nfc_context ctxPtr = nfc.new_SWIGTYPE_p_p_nfc_context();
         nfc.nfc_init(ctxPtr);
