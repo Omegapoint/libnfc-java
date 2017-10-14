@@ -5,6 +5,16 @@ import se.omegapoint.nfc.libnfc.*;
 import javax.smartcardio.CommandAPDU;
 
 public class Main {
+
+    static {
+        try {
+            System.loadLibrary("nfcjni");
+        } catch (UnsatisfiedLinkError e) {
+            System.err.println("Failed to load libnfcjni.{so,dylib}\n" + e);
+            System.exit(1);
+        }
+    }
+
     final protected static char[] hexArray = "0123456789ABCDEF".toCharArray();
 
     public static String bytesToHex(byte[] bytes, int count) {
@@ -24,8 +34,6 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        System.load("/Users/jakobpetersson/Desktop/libnfc-java/swig/libnfcjni.dylib"); // Set this up in another way...
-
         SWIGTYPE_p_p_nfc_context ctxPtr = nfc.new_SWIGTYPE_p_p_nfc_context();
         nfc.nfc_init(ctxPtr);
         SWIGTYPE_p_nfc_context ctx = nfc.SWIGTYPE_p_p_nfc_context_value(ctxPtr);

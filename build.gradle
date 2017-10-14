@@ -2,6 +2,7 @@ group 'se.omegapoint.libnfc'
 version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
+apply plugin: 'application'
 
 sourceCompatibility = 1.8
 
@@ -11,4 +12,10 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+task runApp(type: JavaExec) {
+    classpath sourceSets.main.runtimeClasspath
+    main = "se.omegapoint.nfc.Main"
+    systemProperty "java.library.path", "$projectDir/swig/"
 }
